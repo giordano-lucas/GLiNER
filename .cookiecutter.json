@@ -1,0 +1,14 @@
+{
+  "_checkout": "2021.6.15",
+  "_output_dir": "/Users/lucasgiordano/Desktop/projects/GLiNER",
+  "_repo_dir": "/Users/lucasgiordano/.cookiecutters/cookiecutter-hypermodern-python",
+  "_template": "gh:cjolowicz/cookiecutter-hypermodern-python",
+  "author": "Claudio Jolowicz",
+  "email": "mail@claudiojolowicz.com",
+  "friendly_name": "Gliner",
+  "github_user": "cjolowicz",
+  "license": "MIT",
+  "package_name": "gliner",
+  "project_name": "gliner",
+  "version": "0.0.0"
+}

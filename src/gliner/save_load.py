@@ -1,5 +1,5 @@
 import torch
-from model import GLiNER
+from gliner.model import GLiNER
 
 
 def save_model(current_model, path):

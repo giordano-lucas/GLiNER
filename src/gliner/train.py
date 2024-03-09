@@ -7,9 +7,9 @@ from tqdm import tqdm
 from transformers import get_cosine_schedule_with_warmup
 
 # from model_nested import NerFilteredSemiCRF
-from model import GLiNER
-from modules.run_evaluation import get_for_all_path, sample_train_data
-from save_load import save_model, load_model
+from gliner.model import GLiNER
+from gliner.modules.run_evaluation import get_for_all_path, sample_train_data
+from gliner.save_load import save_model, load_model
 import json
 
 
