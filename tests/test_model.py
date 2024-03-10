@@ -3,6 +3,7 @@ import click
 import argparse
 import pytest
 from gliner import GLiNER
+from transformers import AutoTokenizer
 
 @pytest.fixture
 def text() -> str:
@@ -14,11 +15,17 @@ def text() -> str:
 def labels() -> List[str]:
     return ["person", "award", "date", "competitions", "teams"]
 
-def test_preds(text: str, labels: List[str]) -> None:
+@pytest.fixture
+def model() -> GLiNER:
+    return GLiNER.from_pretrained("urchade/gliner_multi") # type: ignore
 
-    model = GLiNER.from_pretrained("urchade/gliner_multi")
 
+def test_preds(text: str, labels: List[str], model: GLiNER) -> None:
 
 
     entities = model.predict_entities(text, labels)
-    raise ValueError(entities)
+    assert len(entities)> 0
+
+def test_create_tokenizer(model: GLiNER) -> None:
+    tokenizer = model.token_rep_layer.bert_layer.tokenizer
+    assert tokenizer is not None

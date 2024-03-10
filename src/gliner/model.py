@@ -18,7 +18,7 @@ from huggingface_hub.utils import HfHubHTTPError
 
 
 class GLiNER(InstructBase, PyTorchModelHubMixin):
-    def __init__(self, config):
+    def __init__(self, config) -> None:
         super().__init__(config)
 
         self.config = config
@@ -55,6 +55,10 @@ class GLiNER(InstructBase, PyTorchModelHubMixin):
             nn.ReLU(),
             nn.Linear(config.hidden_size * 4, config.hidden_size)
         )
+        
+    @property
+    def tokenizer(self):
+        return self.token_rep_layer.bert_layer.tokenizer
 
     def compute_score_train(self, x):
         span_idx = x['span_idx'] * x['span_mask'].unsqueeze(-1)
